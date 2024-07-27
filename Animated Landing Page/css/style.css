@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ribeye+Marrow&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins" , sans-serif;
+}
+
+body{
+    background-image: url(../images/background.png);
+    background-size: cover;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 90px;
+    color: white;
+    font-size: 22px;
+    z-index: 99;
+    /* opacity: 0; */
+    animation: to-bottom 1s ease forwards;
+}
+
+header nav a{
+    margin-left: 75px;
+    font-size: 24px;
+    color: white;
+    transition: .3s;
+}
+
+header nav .active,
+header nav a:hover{
+    color: #de12d0;
+}
+
+.Home{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 90px;
+}
+
+.text_box{
+    width: 50%;
+    z-index: 99;
+}
+
+.text_box h1{
+    color: #de12d0;
+    font-size: 82px;
+    animation: to-right 1s ease forwards 1.3s;
+}
+
+.text_box h1:nth-child(2){
+    color: white;
+    font-size: 62px;
+    animation-delay: 1.5s;
+}
+
+.text_box p{
+    margin: 40px 0;
+    font-size: 18px;
+    width: 80%;
+    color: #999999;
+    animation: to-right 1s ease forwards 1.7s;
+}
+
+.btn_box{
+    display: flex;
+    gap: 17px;
+}
+
+.btn{
+    position: relative;
+    color: white;
+    padding: 12px 30px;
+    font-size: 22px;
+    border: 2px solid #de12d0;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+    animation: to-right 1s ease forwards 1.9s;
+}
+
+.btn:hover,
+.btn:nth-child(2){
+     color: black;
+     background-color: #de12d0;
+     box-shadow: 0 0 15px #de12d0;
+}
+
+.btn:nth-child(2):hover{
+    color: white;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.Home img{
+    position: absolute;
+    height: 100%;
+    pointer-events: none;
+    right: 0;
+}
+
+.text_box *{
+    opacity: 0;
+}
+
+.text_box span{
+    opacity: 1;
+}
+
+/* Keyframes */
+@keyframes to-bottom {
+    0%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes to-right {
+    0%{
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rotate {
+    0%{
+        opacity: 1;
+        transform: rotateX(75deg) rotate(0deg);
+    }
+    100%{
+        opacity: 1;
+        transform: rotateX(75deg) rotate(360deg);
+    }
+}
+
+.rotating_img{
+    transform: rotateX(75deg);
+    bottom: -30%;
+    animation: rotate 8s linear infinite;
+}
+
+@keyframes face {
+    0%,100%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(-70px);
+    }
+}
+
+.face_img{
+    transform: translateY(10px);
+    animation: face 8s ease-in-out infinite;
+}
+
+@keyframes home_bg {
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 var(--height);
+    }
+}
+
+.Home{
+    background-image: url(../images/light.png);
+    background-size: 100% 100% ;
+    background-position: 0 var(--height);
+    animation: home_bg 3s linear infinite;
+}
